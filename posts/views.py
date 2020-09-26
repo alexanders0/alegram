@@ -2,7 +2,6 @@
 
 #Django
 from django.shortcuts import render
-from django.http import HttpResponse
 
 # Utilities
 from datetime import datetime
@@ -10,34 +9,35 @@ from datetime import datetime
 
 posts = [
     {
-        'name': 'Mont Blanc',
-        'user': 'Alexander Sánchez',
+        'title': 'Mont Blanc',
+        'user': {
+            'name': 'Alexander Sánchez',
+            'picture': 'https://picsum.photos/60/60/?image=1027'
+        },
         'timestamp': datetime.now().strftime('%b %dth, %Y - %H:%M hrs'),
-        'picture': 'https://picsum.photos/200/200/?image=1036',
+        'photo': 'https://picsum.photos/800/600/?image=1036',
     },
     {
-        'name': 'Vía Láctea',
-        'user': 'Matt',
+        'title': 'Vía Láctea',
+        'user': {
+            'name': 'Matt',
+            'picture': 'https://picsum.photos/60/60/?image=1005'
+        },
         'timestamp': datetime.now().strftime('%b %dth, %Y - %H:%M hrs'),
-        'picture': 'https://picsum.photos/200/200/?image=903',
+        'photo': 'https://picsum.photos/800/800/?image=903',
     },
     {
-        'name': 'Nuevo auditorio',
-        'user': 'Neil deGrasse Tyson',
+        'title': 'Nuevo auditorio',
+        'user': {
+            'name': 'Neil deGrasse Tyson',
+            'picture': 'https://picsum.photos/60/60/?image=883'
+        },
         'timestamp': datetime.now().strftime('%b %dth, %Y - %H:%M hrs'),
-        'picture': 'https://picsum.photos/200/200/?image=1076',
+        'photo': 'https://picsum.photos/500/700/?image=1076',
     },
-    
 ]
 
 
 def list_posts(request):
     """ List existing posts """
-    content = []
-    for post in posts:
-        content.append(""" 
-            <p><strong>{name}</strong></p>
-            <p><small>{user} - <i>{timestamp}</i></small></p>
-            <figure><img src="{picture}"/></figure>
-            """.format(**post))
-    return HttpResponse('<br>'.join(content))
+    return render(request, 'feed.html', {'posts': posts})
