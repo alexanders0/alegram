@@ -1,5 +1,14 @@
-.env/*
-db.sqlite3
-__pycache__/
+# OS stuff
 .DS_Store
+
+# Environment
+.env/*
+
+# IDEs
 .vscode/
+
+# SQLite Databases
+db.sqlite3
+
+# Djangoo stuff
+__pycache__/
