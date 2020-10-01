@@ -1,6 +1,6 @@
 """ Post views """
 
-#Django
+# Django
 from django.shortcuts import render
 
 # Utilities

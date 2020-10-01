@@ -6,14 +6,15 @@ from django.http import JsonResponse
 # Utilities
 from datetime import datetime
 
+
 def hello_world(request):
     """ return a greeting """
-    now=datetime.now().strftime('%b %dth, %Y - %H:%M hrs')
+    now = datetime.now().strftime('%b %dth, %Y - %H:%M hrs')
     return HttpResponse(f'Oh, hi! Current server time is {now}')
 
 
 def sort_integers(request):
-    """ Return a JSON response with sorted integers. 
+    """ Return a JSON response with sorted integers.
         For more information about JsonResponse:
         https://docs.djangoproject.com/es/3.1/ref/request-response/
         request: localhost:8000/sorted/?numbers=13,40,78,27,1,11,19
@@ -25,9 +26,9 @@ def sort_integers(request):
         'numbers': sorted_numbers,
         'message': 'Integers sorted successfully'
     }
-    numbers = {'numbers': sorted_numbers} 
-    #import pdb; pdb.set_trace()
-    #breakpoint() -> es un shortcut para import pdb; pdb.set_trace()
+    numbers = {'numbers': sorted_numbers}
+    # import pdb; pdb.set_trace()
+    # breakpoint() -> es un shortcut para import pdb; pdb.set_trace()
     return JsonResponse(data, json_dumps_params={'indent': 2}, safe=False)
 
 
