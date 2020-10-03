@@ -12,3 +12,6 @@ db.sqlite3
 
 # Djangoo stuff
 __pycache__/
+
+# Media
+media/*
