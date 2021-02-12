@@ -14,4 +14,4 @@ class ProfileForm(forms.Form):
         label='Phone number',
         max_length=20,
         required=False)
-    picture = forms.ImageField()
+    picture = forms.ImageField(required=False)

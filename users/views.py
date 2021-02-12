@@ -30,7 +30,8 @@ def update_profile(request):
             profile.website = data['website']
             profile.phone_number = data['phone_number']
             profile.biography = data['biography']
-            profile.picture = data['picture']
+            if data['picture']:
+                profile.picture = data['picture']
             profile.save()
             messages.success(request, 'Profile successfully updated')
 
