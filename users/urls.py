@@ -33,7 +33,7 @@ urlpatterns = [
     ),
     path(
         route='me/profile/',
-        view=views.update_profile,
+        view=views.ProfileUpdateView.as_view(),
         name='update'
     ),
 
