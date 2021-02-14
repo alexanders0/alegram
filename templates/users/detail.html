@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 
 {% block head_content %}
-<title>@{{ user.username }} | Platzigram</title>
+<title>@{{ user.username }} | Alegram</title>
 {% endblock %}
 
 {% block container %}
@@ -22,7 +22,7 @@
                     {{ user.username }}
                     {% if request.user == user %}
                         <a
-                            href="{% url "users:update_profile" %}"
+                            href="{% url "users:update" %}"
                             class="ml-5 btn btn-sm btn-outline-info"
                         >
                             Edit profile
@@ -60,10 +60,10 @@
 
     <div class="container" id="user-posts">
         <div class="row mt-3">
-            {% for post in posts %} 
-            <div class="col sm-4 pt-5 pb-5 pr-5 pl-5 d-flex justify-content-center align-items-center">
-                <a href="{% url 'posts:post_detail' post.id %}" class="border">
-                    <img src="{{ post.photo.url }}" alt="{{ post.title }}" class="img-fluid">
+            {% for post in posts %}
+            <div class="col-sm-4 pt-5 pb-5 pr-5 pl-5 d-flex justify-content-center align-items-center">
+                <a href="{% url "posts:detail" post.pk %}" class="border">
+                    <img src="{{ post.photo.url }}" alt="{{ post.title }}" class="img-fluid"/>
                 </a>
             </div>
             {% endfor %}

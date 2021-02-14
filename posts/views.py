@@ -26,8 +26,6 @@ class PostsFeedView(LoginRequiredMixin, ListView):
 class PostDetailView(LoginRequiredMixin, DetailView):
     """ Post detail view """
     template_name = 'posts/detail.html'
-    slug_field = 'id'
-    slug_url_kwarg = 'id'
     queryset = Post.objects.all()
     context_object_name = 'post'
 
