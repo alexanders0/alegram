@@ -1,11 +1,8 @@
 """ User views """
 
 # Django
-from django.contrib.auth import authenticate, login, logout
-from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth import views as auth_views
-from django.shortcuts import render, redirect
 from django.urls import reverse
 from django.urls.base import reverse_lazy
 from django.views.generic.detail import DetailView
@@ -67,8 +64,9 @@ class ProfileUpdateView(LoginRequiredMixin, UpdateView):
 class LoginView(auth_views.LoginView):
     """ Login view """
     template_name = 'users/login.html'
+    redirect_authenticated_user = True
 
 
 class LogoutView(LoginRequiredMixin, auth_views.LogoutView):
     """ Logout view """
-    template_name = 'users/logged_out.html'
+    pass
